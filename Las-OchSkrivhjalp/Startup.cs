@@ -8,7 +8,7 @@ namespace Las_OchSkrivhjalp
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            
         }
     }
 }

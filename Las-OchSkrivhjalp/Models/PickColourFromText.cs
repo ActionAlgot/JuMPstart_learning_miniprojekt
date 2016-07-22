@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 
 namespace Las_OchSkrivhjalp.Models {
-	public class WriteWordFromImage : IQuestion {
+	public class PickColourFromText : IQuestion {
 		public int ID { get; set; }
 
 		public string ImageSrc { get; set; }

@@ -164,8 +164,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ComposeWordsToSentence.cs" />
+    <Compile Include="Models\EditPunctuationOfWord.cs" />
     <Compile Include="Models\Highscore.cs" />
     <Compile Include="Models\IQuestion.cs" />
+    <Compile Include="Models\PickColourFromText.cs" />
     <Compile Include="Models\QuestionCategory.cs" />
     <Compile Include="Models\WriteWordFromImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

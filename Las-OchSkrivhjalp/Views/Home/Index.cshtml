@@ -1,31 +1,148 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿
+<div class="row jumbotron">
+    <center>
+        <h1>Välj kategori</h1>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <ul>
+            <li><a href="#">Skriv ordet på bilden</a></li>
+            <li><a href="#">Bygg en mening av ord</a></li>
+            <li><a href="#">Sätt ut rätt skiljetecknen</a></li>
+            <li><a href="#">Klicka på rätt färg</a></li>
+            <li><a href="#">Blandade frågor</a></li>
+        </ul>
+
+    </center>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+<div class="row jumbotron">
+    <center>
+        <h1>Skriv ordet på bilden</h1>
+        <img src="http://placehold.it/800x400" /><br />
+        <input type="text" id="answer" value="" />
+        <button class="btn btn-lg btn-success" id="next">Svara</button>
+    </center>
+</div>
+
+<div class="row jumbotron">
+    <center>
+        <h1>Bygg en mening av orden</h1>
+        <img src="http://placehold.it/800x400" /><br />
+        <input type="text" id="answer" value="" />
+        <button class="btn btn-lg btn-success" id="next">Svara</button>
+    </center>
+</div>
+
+<div class="row jumbotron">
+    <center>
+        <h1>Sätt orden i rätt ordning</h1>
+        <img src="http://placehold.it/800x400" /><br />
+        <input type="text" id="answer" value="" />
+        <button class="btn btn-lg btn-success" id="next">Svara</button>
+    </center>
+</div>
+
+<div class="row jumbotron">
+    <center>
+        <h1>Sätt ut rätt skiljetecknen</h1>
+        <img src="http://placehold.it/800x400" /><br />
+        <input type="text" id="answer" value="" />
+        <button class="btn btn-lg btn-success" id="next">Svara</button>
+    </center>
+</div>
+
+<div class="row jumbotron">
+    <center>
+        <h1>{{ variabel }}</h1>
+        <img src="http://placehold.it/800x400" /><br />
+        <input type="text" id="answer" value="" />
+        <button class="btn btn-lg btn-success" id="next">Svara</button>
+    </center>
+</div>
+
+<div class="row jumbotron">
+    <center>
+        <h1>{{ variabel }}</h1>
+        <img src="http://placehold.it/800x400" /><br />
+        <h3>Klicka på den färg ordet beskriver</h3>
+        <div class="answers">
+            <div class="col-md-4">
+                <center>
+                    <a href="#"><div style="display: block; width: 100px; height: 60px; background-color: red;"></div></a></li>
+                </center>
+            </div>
+            <div class="col-md-4">
+                <center>
+                    <a href="#"><div style="display: block; width: 100px; height: 60px; background-color: green;"></div></a></li>
+                </center>
+            </div>
+            <div class="col-md-4">
+                <center>
+                    <a href="#"><div style="display: block; width: 100px; height: 60px; background-color: blue;"></div></a></li>
+                </center>
+            </div>
+        </div>
+        <input type="hidden" id="answer" value="" />
+    </center>
+</div>
+
+
+<div class="row jumbotron">
+    <center>
+        <h1>Rätt!</h1>
+        <h3>Du svarade rätt</h3>
+        <hr />
+        <button class="btn btn-lg btn-success"  id="next">Nästa fråga</button>
+    </center>
+</div>
+
+<div class="row jumbotron">
+    <center>
+        <h1>Fel!</h1>
+        <h3>Rätt svar var</h3>
+        <h2>[Rätt svar]</h2>
+        <hr />
+        <button class="btn btn-lg btn-success"  id="next">Nästa fråga</button>
+    </center>
+</div>
+
+
+
+<div class="row jumbotron">
+    <center>
+        <h1>Rätt!</h1>
+        <h3>Du svarade rätt</h3>
+        <hr />
+        <h3>Detta var sista frågan. Skriv ditt namn</h3>
+        <input type="text" id="answer" value="" /><br /><br />
+        <button class="btn btn-lg btn-success"  id="next">Visa poänglista</button>
+    </center>
+</div>
+
+<div class="row jumbotron">
+    <center>
+        <h1>Grattis!</h1>
+        <h3>Du svarade rätt</h3>
+        <hr />
+        <h3>Detta var sista frågan. Skriv ditt namn</h3>
+        <input type="text" id="answer" value="" /><br /><br />
+        <button class="btn btn-lg btn-success"  id="next">Visa poänglista</button>
+    </center>
+</div>
+
+<div class="row jumbotron">
+    <center>
+        <h1>Poängtoppen för {blandade frågor}</h1>
+
+        <table>
+            <tr>
+                <td>Nisse</td><td>25</td>
+            </tr><tr>
+                <td>Bengt</td><td>20</td>
+            </tr><tr>
+                <td>Lisa</td><td>15</td>
+            </tr>
+        </table>
+
+        <button class="btn btn-lg btn-success" id="start">Börja om</button>
+    </center>
 </div>

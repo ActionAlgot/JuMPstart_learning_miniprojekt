@@ -7,14 +7,14 @@ namespace Las_OchSkrivhjalp.Models {
 	public class PickColourFromText : IQuestion {
 		public int ID { get; set; }
 
-		public string ImageSrc { get; set; }
+		public string Colortxtxtxt { get; set; }
 		public string Headline { get; set; }
 		public string Hint { get; set; }
 
 		public string CorrectAnswer { get; set; }
 
 		public Object Ask() {
-			return new { ImageSrc = ImageSrc, Headline = Headline, Hint = Hint };
+			return new { Colour = Colortxtxtxt, Headline = Headline, Hint = Hint };
 		}
 
 		public Object Answer(string answer) {

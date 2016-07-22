@@ -10,10 +10,11 @@ namespace Las_OchSkrivhjalp.Models {
 		[Key]
 		public int ID { get; set; }
 		public string Name { get; set; }
+		public int Score { get; set; }
 		public DateTime DateWhatever { get; set; }
 
 		[ForeignKey("Category")]
-		public int? CategoryID { get; set; }
+		public int? CategoryID { get; set; }	//null for mixed questions because we're lazy fucks
 		public virtual QuestionCategory Category {get; set;}
 	}
 }

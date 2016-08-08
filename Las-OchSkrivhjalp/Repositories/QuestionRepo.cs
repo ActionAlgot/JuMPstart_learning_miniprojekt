@@ -21,15 +21,13 @@ namespace Las_OchSkrivhjalp.Repositories {
 			return db.Categories.SingleOrDefault(c => c.ID == id);
 		}
 
-		public Object /*json*/ GetQuestion(int cat, int id) {
-			var va = db.Categories.SingleOrDefault(c => c.ID == cat);
-			var qu = va == null ? null : va.Questions.SingleOrDefault(q => q.ID == id);
+		public Object /*json*/ GetQuestion(int id) {
+			var qu = db.Questions.SingleOrDefault(q => q.ID == id);
 			return qu == null ? null : qu.Ask();
 		}
 
-		public Object /*json*/ GetAnswerResult(int cat, int id, string answer) {
-			var va = db.Categories.SingleOrDefault(c => c.ID == cat);
-			var qu = va == null ? null : va.Questions.SingleOrDefault(q => q.ID == id);
+		public Object /*json*/ GetAnswerResult(int id, string answer) {
+			var qu = db.Questions.SingleOrDefault(q => q.ID == id);
 			return qu == null ? null : qu.Answer(answer);
 		}
 
@@ -39,9 +37,12 @@ namespace Las_OchSkrivhjalp.Repositories {
 
 		public void AddHighScore(Highscore hs) {
 			db.ScoreBoard.Add(hs);
-			while (db.ScoreBoard.Count() > 10)	//remove lowest score
+			while (db.ScoreBoard.Where(s => s.CategoryID == hs.CategoryID).Count() > 10)	//remove lowest score
 				db.ScoreBoard.Remove(
-					db.ScoreBoard.Aggregate((a, b) => a.Score < b.Score ? a : b)
+					db.ScoreBoard.Where(s => s.CategoryID == hs.CategoryID)
+					.Aggregate((a, b) => a.Score < b.Score ? a
+						: a.Score > b.Score ? b
+						: a.DateWhatever > b.DateWhatever ? a : b)
 					);
 			db.SaveChanges();
 		}

@@ -28,8 +28,11 @@ textarea {
 
 /* Put some shadow to it*/
 div.row_jumbotron {
-     background-color: #D8ECF2;
-    box-shadow: 0 32px 128px 0 rgba(0, 0, 0, 0.5), 0 64px 128px 0 rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: -16px 1px 157px 28px rgba(0,0,0,0.75);
+    -moz-box-shadow: -16px 1px 157px 28px rgba(0,0,0,0.75);
+    box-shadow: -16px 1px 157px 28px rgba(0,0,0,0.75);
+    background-color: #D8ECF2;
+    border-radius: 5px;
     text-align: center;
 }
 

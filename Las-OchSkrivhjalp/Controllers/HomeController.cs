@@ -43,6 +43,10 @@ namespace Las_OchSkrivhjalp.Controllers {
 			return Json(new {Questions = rList}, JsonRequestBehavior.AllowGet);
 		}
 
+		public JsonResult GetCategories() {
+			return Json(new { Categories = repo.GetAllCategories().Select(c => new { Name = c.Name, ID = c.ID}) }, JsonRequestBehavior.AllowGet);
+		}
+
 		public JsonResult GetMixedQuestions() {
 			var qs = repo.GetAllQuestions().ToList();
 			var rList = GetRandomUniqueElementList(qs, 15, (q => q.ID ));

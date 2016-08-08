@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url("images/background.png");
 }
 .answers { margin-top: 30px;}
 ul li { list-style-type: none;}
@@ -25,4 +26,57 @@ textarea {
     margin-top: 20px;
 }
 
+/* Put some shadow to it*/
+div.row_jumbotron {
+     background-color: #D8ECF2;
+    box-shadow: 0 32px 128px 0 rgba(0, 0, 0, 0.5), 0 64px 128px 0 rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
 
+/* Link styling for meny*/
+a:link, a:visited {
+    font-size: x-large;
+    font-style: normal;
+    background-color: lightblue;
+    color: Black;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 500px;
+    height: 100px;
+    margin: 1em;
+}
+a:hover, a:active {
+    background-color: lightcoral;
+}
+
+/* Headline style*/
+p.head {
+    text-align: center;
+    color: black;
+    font-size: 100px;
+    font-style: normal;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 1em;
+}
+
+/* Answers style */
+div.answers{
+    width: 500px;
+    height: 150px;
+    margin: 1em;
+}
+/* Color picker style*/
+div.col-md-4{
+    display: inline-block;
+     width: 100px;
+    height: 150px;
+    margin: 1em;
+
+}

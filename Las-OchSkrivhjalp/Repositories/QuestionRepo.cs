@@ -13,6 +13,10 @@ namespace Las_OchSkrivhjalp.Repositories {
 			return db.Categories;
 		}
 
+		public IEnumerable<Question> GetAllQuestions() {
+			return db.Questions;
+		}
+
 		public QuestionCategory GetCategory(int id) {
 			return db.Categories.SingleOrDefault(c => c.ID == id);
 		}

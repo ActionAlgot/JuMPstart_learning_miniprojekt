@@ -39,9 +39,12 @@ namespace Las_OchSkrivhjalp.Repositories {
 
 		public void AddHighScore(Highscore hs) {
 			db.ScoreBoard.Add(hs);
-			while (db.ScoreBoard.Count() > 10)	//remove lowest score
+			while (db.ScoreBoard.Where(s => s.CategoryID == hs.CategoryID).Count() > 10)	//remove lowest score
 				db.ScoreBoard.Remove(
-					db.ScoreBoard.Aggregate((a, b) => a.Score < b.Score ? a : b)
+					db.ScoreBoard.Where(s => s.CategoryID == hs.CategoryID)
+					.Aggregate((a, b) => a.Score < b.Score ? a
+						: a.Score > b.Score ? b
+						: a.DateWhatever > b.DateWhatever ? a : b)
 					);
 			db.SaveChanges();
 		}

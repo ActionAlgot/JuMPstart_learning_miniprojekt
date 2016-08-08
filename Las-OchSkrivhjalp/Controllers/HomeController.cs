@@ -10,18 +10,23 @@ namespace Las_OchSkrivhjalp.Controllers {
 	public class HomeController : Controller {
 		private QuestionRepo repo = new QuestionRepo();
 
-		private T[] SelectRandomIDs<T> (List<IQuestion> source, int length, Func<IQuestion, T> selector){
+		private TOut[] GetRandomUniqueElementList<TIn, TOut> (List<TIn> source, int length, Func<TIn, TOut> selector){
 			if (source.Count() < length) return null;
 
-			T[] r = new T[length];
+			TOut[] r = new TOut[length];
 			int filled = 0;
+			bool unique;
 			var rand = new Random();
 			while (filled < length) {
 				var q = source[rand.Next(0, source.Count())];
-				for (int i = 0; i < filled; i++) if (!r[i].Equals(selector(q))) {
+				unique = true;
+				for (int i = 0; i < filled; i++) if (r[i].Equals(selector(q))) {
+					unique = false;
+					break;
+				}
+				if (unique) {
 					r[filled] = selector(q);
 					filled++;
-					break;
 				}
 			}
 			return r;
@@ -34,13 +39,13 @@ namespace Las_OchSkrivhjalp.Controllers {
 		public JsonResult GetQuestions(int cat) {
 			var c = repo.GetCategory(cat);
 			if (c == null) return null;
-			var rList = SelectRandomIDs(c.Questions.ToList(), 5, (q => q.ID));
+			var rList = GetRandomUniqueElementList(c.Questions.ToList(), 5, (q => q.ID));
 			return Json(new {Questions = rList}, JsonRequestBehavior.AllowGet);
 		}
 
 		public JsonResult GetMixedQuestions() {
 			var cs = repo.GetAllCategories().SelectMany(c => c.Questions).ToList();
-			var rList = SelectRandomIDs(cs, 15, (q => new { cat = q.CategoryID, id = q.ID }));
+			var rList = GetRandomUniqueElementList(cs, 15, (q => new { cat = q.CategoryID, id = q.ID }));
 			return Json(new { Questions = rList }, JsonRequestBehavior.AllowGet);
 		}
 

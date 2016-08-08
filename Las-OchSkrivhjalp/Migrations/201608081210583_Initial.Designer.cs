@@ -13,7 +13,7 @@ namespace Las_OchSkrivhjalp.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201607221224346_Initial"; }
+            get { return "201608081210583_Initial"; }
         }
         
         string IMigrationMetadata.Source

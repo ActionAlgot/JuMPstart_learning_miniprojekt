@@ -164,15 +164,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201607221224346_Initial.cs" />
-    <Compile Include="Migrations\201607221224346_Initial.Designer.cs">
-      <DependentUpon>201607221224346_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201608081210583_Initial.cs" />
+    <Compile Include="Migrations\201608081210583_Initial.Designer.cs">
+      <DependentUpon>201608081210583_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComposeWordsToSentence.cs" />
     <Compile Include="Models\EditPunctuationOfWord.cs" />
     <Compile Include="Models\Highscore.cs" />
-    <Compile Include="Models\IQuestion.cs" />
+    <Compile Include="Models\Question.cs" />
     <Compile Include="Models\PickColourFromText.cs" />
     <Compile Include="Models\QuestionCategory.cs" />
     <Compile Include="Models\WriteWordFromImage.cs" />
@@ -225,16 +225,16 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201607221224346_Initial.resx">
-      <DependentUpon>201607221224346_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608081210583_Initial.resx">
+      <DependentUpon>201608081210583_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

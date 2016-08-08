@@ -39,7 +39,7 @@ namespace Las_OchSkrivhjalp.Controllers {
 		public JsonResult GetQuestions(int cat) {
 			var c = repo.GetCategory(cat);
 			if (c == null) return null;
-			var rList = GetRandomUniqueElementList(c.Questions.ToList(), 5, (q => q.ID));
+			var rList = GetRandomUniqueElementList(c.Questions.ToList(), 2, (q => q.ID));
 			return Json(new {Questions = rList}, JsonRequestBehavior.AllowGet);
 		}
 

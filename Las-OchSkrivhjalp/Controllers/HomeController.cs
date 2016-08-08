@@ -53,8 +53,8 @@ namespace Las_OchSkrivhjalp.Controllers {
 			return Json(new { Questions = rList }, JsonRequestBehavior.AllowGet);
 		}
 
-		public JsonResult Question(int cat, int id) {
-			return Json(repo.GetQuestion(cat, id), JsonRequestBehavior.AllowGet);
+		public JsonResult Question(int id) {
+			return Json(repo.GetQuestion(id), JsonRequestBehavior.AllowGet);
 		}
 
 		public ActionResult About() {

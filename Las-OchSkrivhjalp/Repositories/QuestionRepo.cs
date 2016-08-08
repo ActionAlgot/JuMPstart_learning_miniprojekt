@@ -21,15 +21,13 @@ namespace Las_OchSkrivhjalp.Repositories {
 			return db.Categories.SingleOrDefault(c => c.ID == id);
 		}
 
-		public Object /*json*/ GetQuestion(int cat, int id) {
-			var va = db.Categories.SingleOrDefault(c => c.ID == cat);
-			var qu = va == null ? null : va.Questions.SingleOrDefault(q => q.ID == id);
+		public Object /*json*/ GetQuestion(int id) {
+			var qu = db.Questions.SingleOrDefault(q => q.ID == id);
 			return qu == null ? null : qu.Ask();
 		}
 
-		public Object /*json*/ GetAnswerResult(int cat, int id, string answer) {
-			var va = db.Categories.SingleOrDefault(c => c.ID == cat);
-			var qu = va == null ? null : va.Questions.SingleOrDefault(q => q.ID == id);
+		public Object /*json*/ GetAnswerResult(int id, string answer) {
+			var qu = db.Questions.SingleOrDefault(q => q.ID == id);
 			return qu == null ? null : qu.Answer(answer);
 		}
 

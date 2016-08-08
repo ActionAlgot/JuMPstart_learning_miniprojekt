@@ -184,8 +184,29 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\images\asterix\arg.jpg" />
+    <Content Include="Content\images\asterix\bra.jpg" />
+    <Content Include="Content\images\asterix\köp_lista.jpg" />
+    <Content Include="Content\images\asterix\skynda.jpg" />
+    <Content Include="Content\images\asterix\säker.jpg" />
+    <Content Include="Content\images\background.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\colors\blå.jpg" />
+    <Content Include="Content\images\colors\grön.jpg" />
+    <Content Include="Content\images\colors\gul.jpg" />
+    <Content Include="Content\images\colors\orange.jpg" />
+    <Content Include="Content\images\colors\röd.jpg" />
+    <Content Include="Content\images\picture\anka.jpg" />
+    <Content Include="Content\images\picture\bil.jpg" />
+    <Content Include="Content\images\picture\boll.jpg" />
+    <Content Include="Content\images\picture\vas.jpg" />
+    <Content Include="Content\images\picture\äpple2.jpg" />
+    <Content Include="Content\images\scrambeled\bannaner.jpg" />
+    <Content Include="Content\images\scrambeled\barnen.jpg" />
+    <Content Include="Content\images\scrambeled\middag.jpg" />
+    <Content Include="Content\images\scrambeled\var_cyckel.jpg" />
+    <Content Include="Content\images\scrambeled\är_fotbollsspelare.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -235,6 +256,7 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

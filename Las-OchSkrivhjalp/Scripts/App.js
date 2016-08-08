@@ -8,13 +8,18 @@
     var app = angular.module("App", []);
 
     //Dataobjekt som låter oss dela information mellan controllers
-    /*app.factory('Questions', function () {
-        var Questions = { };
-        return Questions;
-    });*/
+    app.factory('GameService', function () {
+        var GameService = {
+            CurrentQuestion: 0,
+            Score: 0,
+            Name: "",
+            AllQuestions: { }
+        };
+        return GameService;
+    });
 
     //Registrera en kontroller
-    var CategoryController = function ($scope, $http) {
+    var CategoryController = function ($scope, $http, GameService) {
         $scope.selectedMixedQuestions = false;
         $scope.selectedCategory = null;
 
@@ -26,14 +31,12 @@
         $scope.getCategories = function () {
             $scope.selectedCategory = false;
             $scope.selectedMixedQuestions = null;
-
-            $http.get("Home/GetCategories.php")
+            $http.get("Home/GetCategories")
             .then(function Success(response) {
-                $scope.Categories = response.data;
+                $scope.Categories = response.data.Categories;
             }, function Error(response) {
-                console.log("Kunde inte få tag i några kategorier.");
+                alert("Fick inga kategorier från servern.");
             });
-
             return;
         };
 
@@ -41,16 +44,15 @@
         $scope.getQuestions = function (cat) {
             $scope.selectedCategory = cat;
             $scope.selectedMixedQuestions = false;
-
             //Hämta objektet som innehåller frågor att ställa
             //och gå till frågeloopen
             $http.get("Home/GetQuestions?cat=" + cat)
             .then(function Success(response) {
-                $scope.questions = response.data;
+                GameService.AllQuestions = response.data.Questions;
+                $scope.categorySelected();
             }, function Error(response) {
                 console.log(response);
             });
-
             return;
         };
 
@@ -63,38 +65,39 @@
             //och gå till frågeloopen
             $http.get("Home/GetMixedQuestions")
             .then(function Success(response) {
-                $scope.questions = response.data;
+                GameService.AllQuestions = response.data.Questions;
+                $scope.categorySelected();
             }, function Error(response) {
                 console.log(response);
             });
-
             return;
         };
-
-        //Hämta en lista på kategorier som finns i databasen
-        //$scope.getCategoryList = function () {
-        //    return alert("not implemented");
-        //};
 
         ////Switcha till skärmen för val av kategori
         //$scope.displayCategories = function () {
         //    return alert("not implemented");
         //};
 
-        //$scope.categorySelected = function () {
-        //    //Inträffar när man valt en kategori - starta utfrågningen
-        //    return alert("not implemented");
-        //};
-        //$scope.initScript();
+        $scope.categorySelected = function () {
+            //Inträffar när man valt en kategori - starta utfrågningen
+            console.log(GameService.AllQuestions);
+            //return alert("Dags att börja utfrågningen");
+            $scope.$emit('StartGame');
+        };
+        $scope.initScript();
     };
 
     //Registrera kontrollern i modulen
-    app.controller("CategoryController", ["$scope", "$http", CategoryController]);
+    app.controller("CategoryController", ["$scope", "$http", "GameService", CategoryController]);
 
-    //var QuestionsController = function ($scope) {
+    var QuestionsController = function ($scope, $http, GameService) {
     //    $scope.Score = 0;   //Håller reda på poängen genom alla frågor
 
-    //    $scope.getQuestion = function () {
+        $scope.$on('StartGame', function(event) {
+            alert("Hello from the QuestionsController");
+        });
+        
+        //    $scope.getQuestion = function () {
     //        //Hämta nästa fråga ur ID listan
     //        return alert("not implemented");
     //    };
@@ -127,7 +130,11 @@
     //        return alert("not implemented");
     //    };
 
-    //};
+    };
+
+    //Registrera kontrollern i modulen
+    app.controller("QuestionsController", ["$scope", "$http", "GameService", QuestionsController]);
+
 
     //var HighscoreController = function ($scope) {
     //    $scope.getHighscoreList = function () {

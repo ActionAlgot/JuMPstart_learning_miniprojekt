@@ -164,19 +164,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201607221224346_Initial.cs" />
-    <Compile Include="Migrations\201607221224346_Initial.Designer.cs">
-      <DependentUpon>201607221224346_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201608081210583_Initial.cs" />
+    <Compile Include="Migrations\201608081210583_Initial.Designer.cs">
+      <DependentUpon>201608081210583_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComposeWordsToSentence.cs" />
     <Compile Include="Models\EditPunctuationOfWord.cs" />
     <Compile Include="Models\Highscore.cs" />
-    <Compile Include="Models\IQuestion.cs" />
+    <Compile Include="Models\Question.cs" />
     <Compile Include="Models\PickColourFromText.cs" />
     <Compile Include="Models\QuestionCategory.cs" />
     <Compile Include="Models\WriteWordFromImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\QuestionRepo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -184,29 +185,8 @@
     <Content Include="App_Data\Database_log.ldf">
       <DependentUpon>Database.mdf</DependentUpon>
     </Content>
-    <Content Include="Content\images\asterix\arg.jpg" />
-    <Content Include="Content\images\asterix\bra.jpg" />
-    <Content Include="Content\images\asterix\köp_lista.jpg" />
-    <Content Include="Content\images\asterix\skynda.jpg" />
-    <Content Include="Content\images\asterix\säker.jpg" />
-    <Content Include="Content\images\background.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\images\colors\blå.jpg" />
-    <Content Include="Content\images\colors\grön.jpg" />
-    <Content Include="Content\images\colors\gul.jpg" />
-    <Content Include="Content\images\colors\orange.jpg" />
-    <Content Include="Content\images\colors\röd.jpg" />
-    <Content Include="Content\images\picture\anka.jpg" />
-    <Content Include="Content\images\picture\bil.jpg" />
-    <Content Include="Content\images\picture\boll.jpg" />
-    <Content Include="Content\images\picture\vas.jpg" />
-    <Content Include="Content\images\picture\äpple2.jpg" />
-    <Content Include="Content\images\scrambeled\bannaner.jpg" />
-    <Content Include="Content\images\scrambeled\barnen.jpg" />
-    <Content Include="Content\images\scrambeled\middag.jpg" />
-    <Content Include="Content\images\scrambeled\var_cyckel.jpg" />
-    <Content Include="Content\images\scrambeled\är_fotbollsspelare.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -245,18 +225,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201607221224346_Initial.resx">
-      <DependentUpon>201607221224346_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608081210583_Initial.resx">
+      <DependentUpon>201608081210583_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

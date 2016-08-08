@@ -11,6 +11,6 @@ namespace Las_OchSkrivhjalp.Models {
 
 		public string Name { get; set; }
 
-		public virtual IEnumerable<IQuestion> Questions { get; set; }
+		public virtual ICollection<Question> Questions { get; set; }
 	}
 }

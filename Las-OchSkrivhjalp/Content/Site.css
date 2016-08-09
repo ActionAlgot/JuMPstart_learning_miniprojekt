@@ -27,7 +27,7 @@ textarea {
 }
 
 /* Put some shadow to it*/
-div.row_jumbotron {
+div.jumbotron {
     -webkit-box-shadow: -16px 1px 157px 28px rgba(0,0,0,0.75);
     -moz-box-shadow: -16px 1px 157px 28px rgba(0,0,0,0.75);
     box-shadow: -16px 1px 157px 28px rgba(0,0,0,0.75);
@@ -36,8 +36,8 @@ div.row_jumbotron {
     text-align: center;
 }
 
-/* Link styling for meny*/
-a:link, a:visited {
+
+#CategorySelector a:link, a:visited {
     font-size: x-large;
     font-style: normal;
     background-color: lightblue;
@@ -50,7 +50,7 @@ a:link, a:visited {
     height: 100px;
     margin: 1em;
 }
-a:hover, a:active {
+#CategorySelector a:hover, a:active {
     background-color: lightcoral;
 }
 
@@ -70,16 +70,23 @@ p.head {
 }
 
 /* Answers style */
-div.answers{
+/*div.answers{
     width: 500px;
     height: 150px;
     margin: 1em;
-}
-/* Color picker style*/
-div.col-md-4{
-    display: inline-block;
-    width: 100px;
-    height: 150px;
-    margin: 1em;
+} */
 
+/* Color picker style*/
+.colorbox {
+    display: inline-block;
+    width: 15%;
+    height: 75px;
+    margin: 1em;
+}
+.colorlink {
+    display: inline-block;
+    display: inline-block;
+    width: 15%;
+    height: 75px;
+    margin: 1em;
 }

@@ -34,10 +34,10 @@ namespace Las_OchSkrivhjalp.Migrations
 				new WriteWordFromImage{ID =4, Category = cats[0], Headline = "Skriv vad du ser", Hint = "", CorrectAnswer = "Vas", ImageSrc = "/Content/images/picture/Vas.jpg"},
                 new WriteWordFromImage{ID =5, Category = cats[0], Headline = "Skriv vad du ser", Hint = "", CorrectAnswer = "Äpple", ImageSrc = "/Content/images/picture/Äpple.jpg"}
 			};
-
+                                                                                                                                                                                           
 			var cwtsql = new List<ComposeWordsToSentence>(){
-				new ComposeWordsToSentence{ID =1, Category = cats[1], Headline = "Skriv meningen", Hint = "", CorrectAnswer = "Inga fler dåliga bananer.", ImageSrc = "\Content\images\scrambeled\bananer.jpg"},
-				new ComposeWordsToSentence{ID =2, Category = cats[1], Headline = "Skriv meningen", Hint = "", CorrectAnswer = "Alla barnen är glada!", ImageSrc = "\Content/images/scrambeled/abarnen.jpg"},
+				new ComposeWordsToSentence{ID =1, Category = cats[1], Headline = "Skriv meningen", Hint = "", CorrectAnswer = "Inga fler dåliga bananer.", ImageSrc = "/Content/images/scrambeled/bananer.jpg"},
+				new ComposeWordsToSentence{ID =2, Category = cats[1], Headline = "Skriv meningen", Hint = "", CorrectAnswer = "Alla barnen är glada!", ImageSrc = "/Content/images/scrambeled/abarnen.jpg"},
 				new ComposeWordsToSentence{ID =3, Category = cats[1], Headline = "Skriv meningen", Hint = "", CorrectAnswer = "En stor paj till middag.", ImageSrc = "/Content/images/scrambeled/middag.jpg"},
                 new ComposeWordsToSentence{ID =4, Category = cats[1], Headline = "Skriv meningen", Hint = "", CorrectAnswer = "Var hittade han en cykel?", ImageSrc = "/Content/images/scrambeled/var_cykel.jpg"},
 				new ComposeWordsToSentence{ID =5, Category = cats[1], Headline = "Skriv meningen", Hint = "", CorrectAnswer = "Är han en bra fotbollsspelare.", ImageSrc = "/Content/images/scrambeled/är_fotbollsspelare.jpg"}
@@ -52,11 +52,11 @@ namespace Las_OchSkrivhjalp.Migrations
 			};
 
 			var pcftql = new List<PickColourFromText>(){
-				new PickColourFromText{ID =1, Category = cats[3], Headline = "Klicka på rätt färg", Hint = "", CorrectAnswer = "Blå", ImageSrc = "Content/images/colors\blå.jpg"},
-				new PickColourFromText{ID =2, Category = cats[3], Headline = "Klicka på rätt färg", Hint = "", CorrectAnswer = "Grön", ImageSrc = "Content\images\colors\grön.jpg"},
-				new PickColourFromText{ID =3, Category = cats[3], Headline = "Klicka på rätt färg", Hint = "", CorrectAnswer = "Gul", ImageSrc = "Content\images\colors\gul.jpg"},
-				new PickColourFromText{ID =4, Category = cats[3], Headline = "Klicka på rätt färg", Hint = "", CorrectAnswer = "Orange", ImageSrc = "Content\images\colors\orange.jpg"},
-                new PickColourFromText{ID =5, Category = cats[3], Headline = "Klicka på rätt färg", Hint = "", CorrectAnswer = "Röd", ImageSrc = "Content\images\colors\röd.jpg"}
+				new PickColourFromText{ID =1, Category = cats[3], Headline = "Klicka på rätt färg", Hint = "", CorrectAnswer = "Blå", ImageSrc = "Content/images/colors/blå.jpg"},
+				new PickColourFromText{ID =2, Category = cats[3], Headline = "Klicka på rätt färg", Hint = "", CorrectAnswer = "Grön", ImageSrc = "Content/images/colors/grön.jpg"},
+				new PickColourFromText{ID =3, Category = cats[3], Headline = "Klicka på rätt färg", Hint = "", CorrectAnswer = "Gul", ImageSrc = "Content/images/colors/gul.jpg"},
+				new PickColourFromText{ID =4, Category = cats[3], Headline = "Klicka på rätt färg", Hint = "", CorrectAnswer = "Orange", ImageSrc = "Content/images/colors/orange.jpg"},
+                new PickColourFromText{ID =5, Category = cats[3], Headline = "Klicka på rätt färg", Hint = "", CorrectAnswer = "Röd", ImageSrc = "Content/images/colors/röd.jpg"}
 			};
 
 			foreach (var c in cats) context.Categories.AddOrUpdate(c);

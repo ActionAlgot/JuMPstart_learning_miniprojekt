@@ -1,153 +1,132 @@
 ﻿<div ng-app="App">
 
-    <div class="row_jumbotron">
-        <center>
-            <h1>Välj kategori</h1>
-            <ul ng-controller="CategoryController">
-                Valt mixade: {{selectedMixedQuestions}}
-                Valt kategori: {{selectedCategory}}
-                <li ng-repeat="Cat in Categories"><a href="#" ng-click="getQuestions(Cat.Id)">{{Cat.Name}}</a></li>
-                <li><a href="#" ng-click="getMixedQuestions()">Blandade frågor</a></li>
-            </ul>
-        </center>
-    </div>
+    <div ng-controller="CategoryController">
 
-    <div class="row_jumbotron">
-        <center>
-            <h1>Skriv ordet på bilden</h1>
-            <img src="http://placehold.it/800x400" /><br />
-            <input type="text" id="answer" value="" />
-            <button class="btn btn-lg btn-success" id="next">Svara</button>
-        </center>
-    </div>
+        <div id="CategorySelector" class="row_jumbotron">
+            <center>
+                <h1>Välj kategori</h1>
+                <ul>
+                    <li ng-repeat="Cat in Categories"><a href="#" ng-click="getQuestions(Cat.ID)">{{Cat.Name}}</a></li>
+                    <li><a href="#" ng-click="getMixedQuestions()">Blandade frågor</a></li>
+                </ul>
+            </center>
+        </div>
 
-    <div class="row_jumbotron">
-        <center>
-            <h1>Bygg en mening av orden</h1>
-            <img src="http://placehold.it/800x400" /><br />
-            <input type="text" id="answer" value="" />
-            <button class="btn btn-lg btn-success" id="next">Svara</button>
-        </center>
-    </div>
+        <div id="WordPictureTemplate" class="row_jumbotron">
+            <center>
+                <h1>Skriv ordet på bilden</h1>
+                <img src="http://placehold.it/800x400" /><br />
+                <input type="text" id="answer" value="" />
+                <button class="btn btn-lg btn-success" id="next">Svara</button>
+            </center>
+        </div>
 
-    <div class="row_jumbotron">
-        <center>
-            <h1>Sätt orden i rätt ordning</h1>
-            <img src="http://placehold.it/800x400" /><br />
-            <input type="text" id="answer" value="" />
-            <button class="btn btn-lg btn-success" id="next">Svara</button>
-        </center>
-    </div>
+        <div id="SentenceBuildTemplate" class="row_jumbotron">
+            <center>
+                <h1>Bygg en mening av orden</h1>
+                <img src="http://placehold.it/800x400" /><br />
+                <input type="text" id="answer" value="" />
+                <button class="btn btn-lg btn-success" id="next">Svara</button>
+            </center>
+        </div>
 
-    <div class="row_jumbotron">
-        <center>
-            <h1>Sätt ut rätt skiljetecknen</h1>
-            <img src="http://placehold.it/800x400" /><br />
-            <input type="text" id="answer" value="" />
-            <button class="btn btn-lg btn-success" id="next">Svara</button>
-        </center>
-    </div>
+        
 
-    <div class="row_jumbotron">
-        <center>
-            <h1>{{ variabel }}</h1>
-            <img src="http://placehold.it/800x400" /><br />
-            <input type="text" id="answer" value="" />
-            <button class="btn btn-lg btn-success" id="next">Svara</button>
-        </center>
-    </div>
+        <div  id="PunctuationTemplate" class="row_jumbotron">
+            <center>
+                <h1>Sätt ut rätt skiljetecknen</h1>
+                <img src="http://placehold.it/800x400" /><br />
+                <input type="text" id="answer" value="" />
+                <button class="btn btn-lg btn-success" id="next">Svara</button>
+            </center>
+        </div>
 
-    <div class="row_jumbotron">
-        <center>
-            <h1>{{ variabel }}</h1>
-            <img src="http://placehold.it/800x400" /><br />
-            <h3>Klicka på den färg ordet beskriver</h3>
-            <div class="answers">
-                <div class="col-md-4">
-                    <center>
-                        <a href="#"><div style="display: block; width: 100px; height: 60px; background-color: red;"></div></a></li>
-                    </center>
+        
+
+        <div  id="ClickColorTemplate" class="row_jumbotron">
+            <center>
+                <h1>{{ variabel }}</h1>
+                <img src="http://placehold.it/800x400" /><br />
+                <h3>Klicka på den färg ordet beskriver</h3>
+                <div class="answers">
+                    <div class="col-md-4">
+                        <center>
+                            <a href="#"><div style="display: block; width: 100px; height: 60px; background-color: red;"></div></a></li>
+                        </center>
+                    </div>
+                    <div class="col-md-4">
+                        <center>
+                            <a href="#"><div style="display: block; width: 100px; height: 60px; background-color: green;"></div></a></li>
+                        </center>
+                    </div>
+                    <div class="col-md-4">
+                        <center>
+                            <a href="#"><div style="display: block; width: 100px; height: 60px; background-color: blue;"></div></a></li>
+                        </center>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <center>
-                        <a href="#"><div style="display: block; width: 100px; height: 60px; background-color: green;"></div></a></li>
-                    </center>
-                </div>
-                <div class="col-md-4">
-                    <center>
-                        <a href="#"><div style="display: block; width: 100px; height: 60px; background-color: blue;"></div></a></li>
-                    </center>
-                </div>
-            </div>
-            <input type="hidden" id="answer" value="" />
-        </center>
-    </div>
+                <input type="hidden" id="answer" value="" />
+            </center>
+        </div>
+
+                          
+        <div id="CorrectAnswer" class="row_jumbotron">
+            <center>
+                <h1>Rätt!</h1>
+                <h3>Du svarade rätt</h3>
+                <hr />
+
+                <button class="btn btn-lg btn-success" id="next">Nästa fråga</button>
+                <!-- eller -->
+                <h3>Detta var sista frågan. Skriv ditt namn</h3>
+                <input type="text" id="answer" value="" /><br /><br />
+                <button class="btn btn-lg btn-success" id="next">Visa poänglista</button>
+
+            </center>
+        </div>
 
 
-    <div class="row_jumbotron">
-        <center>
-            <h1>Rätt!</h1>
-            <h3>Du svarade rätt</h3>
-            <hr />
-            <button class="btn btn-lg btn-success" id="next">Nästa fråga</button>
-        </center>
-    </div>
+        <div id="WrongAnswer" class="row_jumbotron">
+            <center>
+                <h1>Fel!</h1>
+                <h3>Rätt svar var</h3>
+                <h2>[Rätt svar]</h2>
+                <hr />
 
-    <div class="row_jumbotron">
-        <center>
-            <h1>Fel!</h1>
-            <h3>Rätt svar var</h3>
-            <h2>[Rätt svar]</h2>
-            <hr />
-            <button class="btn btn-lg btn-success" id="next">Nästa fråga</button>
-        </center>
-    </div>
+                <button class="btn btn-lg btn-success" id="next">Nästa fråga</button>
+                <!-- eller -->
+                <h3>Detta var sista frågan. Skriv ditt namn</h3>
+                <input type="text" id="answer" value="" /><br /><br />
+                <button class="btn btn-lg btn-success" id="next">Visa poänglista</button>
+
+            </center>
+        </div>
 
 
 
-    <div class="row_jumbotron">
-        <center>
-            <h1>Rätt!</h1>
-            <h3>Du svarade rätt</h3>
-            <hr />
-            <h3>Detta var sista frågan. Skriv ditt namn</h3>
-            <input type="text" id="answer" value="" /><br /><br />
-            <button class="btn btn-lg btn-success" id="next">Visa poänglista</button>
-        </center>
-    </div>
+        <div id="ScoreBoardTemplate" class="row_jumbotron">
+            <center>
+                <h1>Poängtoppen för {blandade frågor}</h1>
 
-    <div class="row_jumbotron">
-        <center>
-            <h1>Grattis!</h1>
-            <h3>Du svarade rätt</h3>
-            <hr />
-            <h3>Detta var sista frågan. Skriv ditt namn</h3>
-            <input type="text" id="answer" value="" /><br /><br />
-            <button class="btn btn-lg btn-success" id="next">Visa poänglista</button>
-        </center>
-    </div>
+                <table>
+                    <tr>
+                        <td>Nisse</td>
+                        <td>25</td>
+                    </tr>
+                    <tr>
+                        <td>Bengt</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Lisa</td>
+                        <td>15</td>
+                    </tr>
+                </table>
 
-    <div class="row_jumbotron">
-        <center>
-            <h1>Poängtoppen för {blandade frågor}</h1>
+                <button class="btn btn-lg btn-success" id="start">Börja om</button>
+            </center>
+        </div>
 
-            <table>
-                <tr>
-                    <td>Nisse</td>
-                    <td>25</td>
-                </tr>
-                <tr>
-                    <td>Bengt</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>Lisa</td>
-                    <td>15</td>
-                </tr>
-            </table>
-
-            <button class="btn btn-lg btn-success" id="start">Börja om</button>
-        </center>
     </div>
 
 </div>

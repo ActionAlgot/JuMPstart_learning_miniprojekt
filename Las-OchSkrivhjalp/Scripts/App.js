@@ -1,4 +1,5 @@
-﻿/*
+﻿"use strict";
+/*
     Javascript for all logic within the "Läs & Skrivhjälp" project
 */
 
@@ -9,8 +10,9 @@
 
     //Dataobjekt som låter oss dela information mellan controllers
     app.factory('GameService', function () {
-        var GameService = {
-            CurrentQuestion: -1,
+    	var GameService = {
+			questionIndex: -1,
+			CurrentQuestionID: function () { return this.AllQuestions[this.questionIndex]; },
             Score: -1,
             Name: "",
             AllQuestions: []
@@ -20,8 +22,8 @@
 
     //Registrera en kontroller
     var CategoryController = function ($scope, $http, GameService) {
-        $scope.selectedMixedQuestions = false;
-        $scope.selectedCategory = null;
+    	$scope.input = { asdf: "asdfasd" };
+    	$scope.question = { Headline: "hej", ImageSrc: "", Hint: "" };
 
         $scope.initScript = function () {
             $scope.getCategories();
@@ -29,13 +31,11 @@
 
         //Hämta kategorierna som finns i databasen
         $scope.getCategories = function () {
-            $scope.selectedCategory = false;
-            $scope.selectedMixedQuestions = null;
             $http.get("Home/GetCategories")
             .then(function Success(response) {
                 $scope.Categories = response.data.Categories;
             }, function Error(response) {
-                alert("Fick inga kategorier från servern.");
+            	console.log(response);
             });
             return;
         };
@@ -48,15 +48,24 @@
             }, function Error(response) {
                 console.log(response);
             });
+        	$scope.$apply();
             return;
         };
 
         $scope.askNextQuestion = function () {
-            //Dölj kategorivals skärmen om detta är första frågan
-            
-            //Visa nästa fråga
+        	//Dölj kategorivals skärmen om detta är första frågan
+        	GameService.questionIndex++;
+        	$http.get("Home/Question?ID=" + GameService.CurrentQuestionID())
+			.then(function Success(response) {
+				$scope.question = response.data;
+				console.log(response.data);
 
-                //Fyll i fälten i templaten
+				
+				alert($scope.question.Headline);
+			}, function Error(response) {
+		   		console.log(response);
+			});
+
         };
 
         $scope.answerQuestion = function () {
@@ -83,10 +92,9 @@
         $scope.beginGame = function (questions) {
             //Inträffar när man valt en kategori - starta utfrågningen
         	GameService.AllQuestions = questions;
-        	GameService.CurrentQuestion = 0;
+        	GameService.CurrentQuestion = -1;
         	GameService.Score = 0;
-            alert(GameService.AllQuestions);
-            $scope.$emit('StartGame');
+        	$scope.askNextQuestion();
         };
         $scope.initScript();
     };

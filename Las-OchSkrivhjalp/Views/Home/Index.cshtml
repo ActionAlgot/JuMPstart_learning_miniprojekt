@@ -15,8 +15,8 @@
 			<h1>{{question.Headline}}</h1>
 			<img src="{{question.ImageSrc}}" /><br/>
 			{{question.Hint}}<br />
-			<input type="text" id="answer" value="" />
-			<button class="btn btn-lg btn-success" id="next">Svara</button>
+			<input type="text" id="answer" ng-model="input" />
+			<button class="btn btn-lg btn-success" id="next" ng-click="answerQuestion()">Svara</button>
 		</center>
 	</div>
 

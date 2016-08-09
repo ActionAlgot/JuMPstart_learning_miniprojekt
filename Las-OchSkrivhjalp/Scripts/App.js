@@ -21,7 +21,9 @@
 
     //Registrera en kontroller
     var CategoryController = function ($scope, $http, GameService) {
+    	$scope.input = "";
     	$scope.question = {};
+    	$scope.answer = {};
 
         $scope.initScript = function () {
             $scope.getCategories();
@@ -45,7 +47,6 @@
             }, function Error(response) {
                 console.log(response);
             });
-        	$scope.question.Headline = "asdsdfasdf";
         };
 
         $scope.askNextQuestion = function () {
@@ -57,10 +58,17 @@
 			}, function Error(response) {
 		   		console.log(response);
 			});
-
         };
 
         $scope.answerQuestion = function () {
+        	$http.get("Home/Answer?id=" + GameService.CurrentQuestionID() + "&answer=" + $scope.input)
+			.then(function Success(response) {
+				$scope.answer = response.data;
+				alert($scope.answer);
+			}, function Error(response) {
+				alert("fail");
+				console.log(response);
+			});
             //Kontakta servern för att se om svaret var rätt 
             //och vilken poäng iv fick
             
@@ -84,7 +92,7 @@
         $scope.beginGame = function (questions) {
             //Inträffar när man valt en kategori - starta utfrågningen
         	GameService.AllQuestions = questions;
-        	GameService.CurrentQuestion = -1;
+        	GameService.questionIndex = -1;
         	GameService.Score = 0;
         	$scope.askNextQuestion();
         };

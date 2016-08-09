@@ -1,5 +1,4 @@
-﻿"use strict";
-/*
+﻿/*
     Javascript for all logic within the "Läs & Skrivhjälp" project
 */
 
@@ -22,8 +21,7 @@
 
     //Registrera en kontroller
     var CategoryController = function ($scope, $http, GameService) {
-    	$scope.input = { asdf: "asdfasd" };
-    	$scope.question = { Headline: "hej", ImageSrc: "", Hint: "" };
+    	$scope.question = {};
 
         $scope.initScript = function () {
             $scope.getCategories();
@@ -37,7 +35,6 @@
             }, function Error(response) {
             	console.log(response);
             });
-            return;
         };
 
         //Hämta en lista på frågor ur en kategori
@@ -48,8 +45,7 @@
             }, function Error(response) {
                 console.log(response);
             });
-        	$scope.$apply();
-            return;
+        	$scope.question.Headline = "asdsdfasdf";
         };
 
         $scope.askNextQuestion = function () {
@@ -58,10 +54,6 @@
         	$http.get("Home/Question?ID=" + GameService.CurrentQuestionID())
 			.then(function Success(response) {
 				$scope.question = response.data;
-				console.log(response.data);
-
-				
-				alert($scope.question.Headline);
 			}, function Error(response) {
 		   		console.log(response);
 			});

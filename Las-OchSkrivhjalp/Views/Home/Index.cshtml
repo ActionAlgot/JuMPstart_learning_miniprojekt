@@ -1,36 +1,20 @@
 ﻿<div ng-app="App" ng-controller="CategoryController">
+
 	<div id="CategorySelector" class="row_jumbotron">
 		<center>
 			<h1>Välj kategori</h1>
-			<ul ng-controller="CategoryController">
+			<ul>
 				<li ng-repeat="Cat in Categories"><a href="#" ng-click="getQuestions(Cat.ID)">{{Cat.Name}}</a></li>
 				<li><a href="#" ng-click="getQuestions()">Blandade frågor</a></li>
 			</ul>
 		</center>
 	</div>
+
 	<div ng-show="true" class="row_jumbotron">
 		<center>
-			{{input.asdf}}
-			<h1 ng-bind="question.Headline"></h1>
-			<!--<img src="" /><br />-->
-			{{question.Headline}}
-			<input type="text" id="answer" value="" />
-			<button class="btn btn-lg btn-success" id="next">Svara</button>
-		</center>
-	</div>
-	<div id="SentenceBuildTemplate" class="row_jumbotron">
-		<center>
-			<h1>Bygg en mening av orden</h1>
-			<img src="http://placehold.it/800x400" /><br />
-			<input type="text" id="answer" value="" />
-			<button class="btn btn-lg btn-success" id="next">Svara</button>
-		</center>
-	</div>
-
-	<div id="PunctuationTemplate" class="row_jumbotron">
-		<center>
-			<h1>Sätt ut rätt skiljetecknen</h1>
-			<img src="http://placehold.it/800x400" /><br />
+			<h1>{{question.Headline}}</h1>
+			<img src="{{question.ImageSrc}}" /><br/>
+			{{question.Hint}}<br />
 			<input type="text" id="answer" value="" />
 			<button class="btn btn-lg btn-success" id="next">Svara</button>
 		</center>

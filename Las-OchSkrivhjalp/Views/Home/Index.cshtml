@@ -5,8 +5,8 @@
         <div id="CategorySelector" class="row_jumbotron">
         <center>
             <h1>Välj kategori</h1>
-            <ul>
-                <li ng-repeat="Cat in Categories"><a href="#" ng-click="getQuestions(Cat.Id)">{{Cat.Name}}</a></li>
+            <ul ng-controller="CategoryController">
+                <li ng-repeat="Cat in Categories"><a href="#" ng-click="getQuestions(Cat.ID)">{{Cat.Name}}</a></li>
                 <li><a href="#" ng-click="getQuestions()">Blandade frågor</a></li>
             </ul>
         </center>

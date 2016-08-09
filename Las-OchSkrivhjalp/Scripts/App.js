@@ -73,7 +73,31 @@
             return;
         };
 
-        ////Switcha till skärmen för val av kategori
+        $scope.askNextQuestion = function () {
+            //Dölj kategorivals skärmen om detta är första frågan
+            
+            //Visa nästa fråga
+
+                //Fyll i fälten i templaten
+        };
+
+        $scope.answerQuestion = function () {
+            //Kontakta servern för att se om svaret var rätt 
+            //och vilken poäng iv fick
+            
+            //Uppdatera status på vilken fråga vi är på och vilken poäng vi har
+
+            //Hoppa till nästa fråga - askNextQuestion
+            //eller visa skärm för att ange namn
+        };
+        
+        $scope.EnteredName = function () {
+            //Spara namn till db med score
+
+            //Visa highscore sida
+        };
+        
+        ////Switcha till skärmen för val av kategori för ett nytt spel
         //$scope.displayCategories = function () {
         //    return alert("not implemented");
         //};
@@ -90,12 +114,12 @@
     //Registrera kontrollern i modulen
     app.controller("CategoryController", ["$scope", "$http", "GameService", CategoryController]);
 
-    var QuestionsController = function ($scope, $http, GameService) {
+    //var QuestionsController = function ($scope, $http, GameService) {
     //    $scope.Score = 0;   //Håller reda på poängen genom alla frågor
 
-        $scope.$on('StartGame', function(event) {
-            alert("Hello from the QuestionsController");
-        });
+        //$scope.$on('StartGame', function(event) {
+        //    alert("Hello from the QuestionsController");
+        //});
         
         //    $scope.getQuestion = function () {
     //        //Hämta nästa fråga ur ID listan
@@ -133,7 +157,7 @@
     };
 
     //Registrera kontrollern i modulen
-    app.controller("QuestionsController", ["$scope", "$http", "GameService", QuestionsController]);
+    //app.controller("QuestionsController", ["$scope", "$http", "GameService", QuestionsController]);
 
 
     //var HighscoreController = function ($scope) {

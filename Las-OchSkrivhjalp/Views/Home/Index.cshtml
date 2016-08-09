@@ -6,8 +6,8 @@
             <ul ng-controller="CategoryController">
                 Valt mixade: {{selectedMixedQuestions}}
                 Valt kategori: {{selectedCategory}}
-                <li ng-repeat="Cat in Categories"><a href="#" ng-click="getQuestions(Cat.Id)">{{Cat.Name}}</a></li>
-                <li><a href="#" ng-click="getMixedQuestions()">Blandade frågor</a></li>
+                <li ng-repeat="Cat in Categories"><a href="#" ng-click="getQuestions(Cat.ID)">{{Cat.Name}}</a></li>
+                <li><a href="#" ng-click="getQuestions()">Blandade frågor</a></li>
             </ul>
         </center>
     </div>

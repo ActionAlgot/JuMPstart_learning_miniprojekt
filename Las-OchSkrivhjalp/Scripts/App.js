@@ -10,10 +10,10 @@
     //Dataobjekt som låter oss dela information mellan controllers
     app.factory('GameService', function () {
         var GameService = {
-            CurrentQuestion: 0,
-            Score: 0,
+            CurrentQuestion: -1,
+            Score: -1,
             Name: "",
-            AllQuestions: { }
+            AllQuestions: []
         };
         return GameService;
     });
@@ -42,31 +42,9 @@
 
         //Hämta en lista på frågor ur en kategori
         $scope.getQuestions = function (cat) {
-            $scope.selectedCategory = cat;
-            $scope.selectedMixedQuestions = false;
-            //Hämta objektet som innehåller frågor att ställa
-            //och gå till frågeloopen
-            $http.get("Home/GetQuestions?cat=" + cat)
+        	$http.get(cat != null ? "Home/GetQuestions?cat=" + cat : "Home/GetMixedQuestions")
             .then(function Success(response) {
-                GameService.AllQuestions = response.data.Questions;
-                $scope.categorySelected();
-            }, function Error(response) {
-                console.log(response);
-            });
-            return;
-        };
-
-        //Hämta en lista på blandade frågor
-        $scope.getMixedQuestions = function () {
-            $scope.selectedMixedQuestions = true;
-            $scope.selectedCategory = null;
-
-            //Hämta objektet som innehåller frågor att ställa
-            //och gå till frågeloopen
-            $http.get("Home/GetMixedQuestions")
-            .then(function Success(response) {
-                GameService.AllQuestions = response.data.Questions;
-                $scope.categorySelected();
+            	$scope.beginGame(response.data.Questions);	//move to next stage
             }, function Error(response) {
                 console.log(response);
             });
@@ -102,10 +80,12 @@
         //    return alert("not implemented");
         //};
 
-        $scope.categorySelected = function () {
+        $scope.beginGame = function (questions) {
             //Inträffar när man valt en kategori - starta utfrågningen
-            console.log(GameService.AllQuestions);
-            //return alert("Dags att börja utfrågningen");
+        	GameService.AllQuestions = questions;
+        	GameService.CurrentQuestion = 0;
+        	GameService.Score = 0;
+            alert(GameService.AllQuestions);
             $scope.$emit('StartGame');
         };
         $scope.initScript();

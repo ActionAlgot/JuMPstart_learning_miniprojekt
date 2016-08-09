@@ -168,6 +168,10 @@
     <Compile Include="Migrations\201608081210583_Initial.Designer.cs">
       <DependentUpon>201608081210583_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608090807036_mer-bilder.cs" />
+    <Compile Include="Migrations\201608090807036_mer-bilder.Designer.cs">
+      <DependentUpon>201608090807036_mer-bilder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ComposeWordsToSentence.cs" />
     <Compile Include="Models\EditPunctuationOfWord.cs" />
@@ -181,6 +185,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\asterix\arg.jpg" />
@@ -199,7 +207,7 @@
     <Content Include="Content\images\picture\boll.jpg" />
     <Content Include="Content\images\picture\vas.jpg" />
     <Content Include="Content\images\picture\äpple2.jpg" />
-    <Content Include="Content\images\scrambeled\bannaner.jpg" />
+    <Content Include="Content\images\scrambeled\bananer.jpg" />
     <Content Include="Content\images\scrambeled\barnen.jpg" />
     <Content Include="Content\images\scrambeled\middag.jpg" />
     <Content Include="Content\images\scrambeled\var_cyckel.jpg" />
@@ -252,10 +260,11 @@
     <EmbeddedResource Include="Migrations\201608081210583_Initial.resx">
       <DependentUpon>201608081210583_Initial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608090807036_mer-bilder.resx">
+      <DependentUpon>201608090807036_mer-bilder.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

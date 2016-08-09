@@ -154,7 +154,7 @@
     //        return alert("not implemented");
     //    };
 
-    };
+    //};
 
     //Registrera kontrollern i modulen
     //app.controller("QuestionsController", ["$scope", "$http", "GameService", QuestionsController]);
